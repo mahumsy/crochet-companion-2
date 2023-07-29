@@ -4,17 +4,10 @@ import Image from 'next/image'
 export default function Navbar() {
   return (
     <div className="container">
-      {/* <nav>
-        <Image src="/rupee.png" width={50} height={48} />
-        <h1>Gaming Vibes</h1>
-        <ul>
-          <li><Link href="/"><a>Home</a></Link></li>
-          <li><Link href="/guides"><a>Guides</a></Link></li>
-        </ul>
-      </nav> */}
+      
 
       <nav>
-  <Image src="/rupee.png" />
+      <Image src="/rupee.png" width={30} height={40} />
   
   <h1>Gaming Vibes</h1>
 
