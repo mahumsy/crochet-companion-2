@@ -9,11 +9,13 @@ export default function Guides() {
   const [favorites, setFavorites] = useState([]);
 
   const addToFavorites = async (guideId) => {
-    const resp = await fetch('/.netlify/functions/guides', {
-      method: 'POST',
-      body: JSON.stringify({ guideId })
-    });
-    setFavorites(await resp.json()); 
+    try {
+      const resp = await fetch('/.netlify/functions/guides', {/*...*/}) 
+      const data = await resp.json()
+      setFavorites(data)
+    } catch (error) {
+      console.error(error)
+    }
   }
 
   useEffect(() => {
@@ -59,8 +61,8 @@ export default function Guides() {
           <h4>written by {guide.author}</h4>
           <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. At corrupti iste ab magnam dignissimos id maxime rerum quae minima. Delectus maxime culpa est consequatur veritatis, perspiciatis cum corrupti possimus quis?</p>
           <button onClick={() => addToFavorites(guide.id)}>
-      Add to Favorites
-    </button> 
+  Add to Favorites 
+</button>
         </div>
       ))}
 

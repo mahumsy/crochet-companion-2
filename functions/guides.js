@@ -11,6 +11,11 @@ exports.handler = async (event, context) => {
   
       user.favorites.push(guideId);
   
+      await netlifyIdentity.gotrue.currentUser().update({
+        favorites: user.favorites
+      })
+      
+
       return {
         statusCode: 200, 
         body: JSON.stringify(user.favorites)
