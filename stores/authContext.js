@@ -1,5 +1,4 @@
 //keep track of the authentication state for each user
-
 import { createContext, useState, useEffect } from 'react'
 import netlifyIdentity from 'netlify-identity-widget'
 
@@ -14,8 +13,18 @@ export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState(null)
 
   useEffect(() => {
+    netlifyIdentity.on('login', (user) => {
+      setUser(user)
+      netlifyIdentity.close()
+      console.log('login event')
+    })
+
     // init netlify identity connection
     netlifyIdentity.init()
+
+    return () => {
+      netlifyIdentity.off('login')
+    }
   }, [])
 
   const login = () => {
@@ -25,7 +34,6 @@ export const AuthContextProvider = ({ children }) => {
   const context = { user, login }
 
   return (
-    //wrap the components that it provides the data to
     <AuthContext.Provider value={context}>
       { children }
     </AuthContext.Provider>
