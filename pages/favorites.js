@@ -13,9 +13,15 @@ export default function Favorites() {
       .then(res => res.json())
       .then(guides => {
         // filter guides to just favorites
-        const favorites = guides.filter(guide => 
-          user.favorites.includes(guide.id)  
-        );
+        const favorites = guides.map(guide => {
+  return {
+    id: guide.id,
+    title: guide.title,
+    author: guide.author,
+  };
+}).filter(guide => 
+  user.favorites.includes(String(guide.id))  
+);
         setFavorites(favorites);
       })
   }, [user])
