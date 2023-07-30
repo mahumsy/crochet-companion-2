@@ -4,6 +4,18 @@ exports.handler = async (event, context) => {
       { title: 'Mario Kart Shortcuts You Never Knew Existed', author: 'luigi' },
       { title: 'Ultimate Street Fighter Guide', author: 'chun-li' },
     ]
+
+    if (event.httpMethod === 'POST') {
+      const { guideId } = JSON.parse(event.body);
+      const { user } = context.clientContext;
+  
+      user.favorites.push(guideId);
+  
+      return {
+        statusCode: 200, 
+        body: JSON.stringify(user.favorites)
+      }
+    }
   
     if (context.clientContext.user) {
       // fetch data & then return

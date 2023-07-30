@@ -6,6 +6,15 @@ export default function Guides() {
   const { user, authReady, login } = useContext(AuthContext)
   const [guides, setGuides] = useState(null)
   const [error, setError] = useState(null)
+  const [favorites, setFavorites] = useState([]);
+
+  const addToFavorites = async (guideId) => {
+    const resp = await fetch('/.netlify/functions/guides', {
+      method: 'POST',
+      body: JSON.stringify({ guideId })
+    });
+    setFavorites(await resp.json()); 
+  }
 
   useEffect(() => {
     if (authReady) {
@@ -49,6 +58,9 @@ export default function Guides() {
           <h3>{ guide.title }</h3>
           <h4>written by {guide.author}</h4>
           <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. At corrupti iste ab magnam dignissimos id maxime rerum quae minima. Delectus maxime culpa est consequatur veritatis, perspiciatis cum corrupti possimus quis?</p>
+          <button onClick={() => addToFavorites(guide.id)}>
+      Add to Favorites
+    </button> 
         </div>
       ))}
 
