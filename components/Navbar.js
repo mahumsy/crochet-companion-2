@@ -5,8 +5,8 @@ import AuthContext from '../stores/authContext'
 
 export default function Navbar() {
 
-  const user = useContext(AuthContext)
-  console.log(user)
+  const val = useContext(AuthContext)
+  console.log(val)
 
   return (
     <div className="container">
