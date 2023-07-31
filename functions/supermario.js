@@ -1,17 +1,12 @@
-// supermario.js
-
+//supermario function:
 exports.handler = async (event, context) => {
-  if (event.body && event.body.action === 'addFavorite') {
+    console.log('function ran')
+  
+    const data = { name: 'mario', age: 35, job: 'plumber' } 
+  
+    // return response to browser
     return {
       statusCode: 200,
-      body: JSON.stringify('hello')
+      body: JSON.stringify(guides)
     }
   }
-
-  const data = { name: 'mario', age: 35, job: 'plumber' }
-
-  return {
-    statusCode: 200, 
-    body: JSON.stringify(data)
-  }
-}
