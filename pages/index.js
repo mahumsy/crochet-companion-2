@@ -1,5 +1,5 @@
 import styles from '../styles/Home.module.css'
-
+import { handler as supermario } from './supermario'
 export default function Home() {
 
   const addFavorite = async () => {
