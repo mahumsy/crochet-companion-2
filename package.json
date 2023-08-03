@@ -8,7 +8,6 @@
     "start": "next start"
   },
   "dependencies": {
-    "favoritesContext": "^1.0.0",
     "netlify-identity-widget": "^1.9.2",
     "next": "^13.4.12",
     "postcss": "^7.0.39",
