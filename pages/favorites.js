@@ -1,76 +1,59 @@
-import { useContext, useEffect, useState } from 'react';
-import styles from '../styles/Guides.module.css';
-import AuthContext from '../stores/authContext';
-import FavoritesContext from '../stores/favorites-context';
+import { useContext, useEffect, useState } from 'react'
+import styles from '../styles/Guides.module.css'
+import AuthContext from '../stores/authContext'
 
-const Favorites = () => {
-  const { user, authReady, login, favorites } = useContext(AuthContext);
-  const [favoriteGuides, setFavoriteGuides] = useState([]);
+export default function Guides() {
+  const { user, authReady, login } = useContext(AuthContext)
+  const [guides, setGuides] = useState(null)
+  const [error, setError] = useState(null)
 
   useEffect(() => {
-    if (user) {
-      fetch('/.netlify/functions/favorites', {
+    if (authReady) {
+      fetch('/.netlify/functions/guides', user && {
         headers: {
-          Authorization: 'Bearer ' + user.token.access_token
+          Authorization:  'Bearer ' + user.token.access_token
         }
       })
       .then(res => {
         if (!res.ok) {
-          return;
+          login()
+          throw Error('You must be logged in to view this content')
         }
-        return res.json();
+        return res.json()
       })
       .then(data => {
-        setFavoriteGuides(data);
+        setError(null)
+        setGuides(data)
       })
       .catch(err => {
-        console.log(err);
-      });
+        setError(err.message)
+        setGuides(null)
+      })
     }
-  }, [user]);
 
-  const handleFavorite = guide => {
-    favorite(guide);
-  };
+  },[user, authReady])
 
   return (
-    <div>
-      <h1>Favorite Guides</h1>
-      {favoriteGuides.map(guide => (
-        <div key={guide.id}>
-          <h3>{guide.title}</h3>
-          <p>{guide.author}</p>
-          <button onClick={() => handleFavorite(guide)}>Add to favorites</button>
+    <div className={styles.guides}>
+
+      
+      
+      {!authReady && <div>Loading...</div>}
+
+      {error && (
+        <div className={styles.error}>
+          <p>{ error }</p>
+        </div>
+      )}
+
+      {guides && guides.map(guide => (
+        <div key={guide.title} className={styles.card}>
+          <h3>{ guide.title }</h3>
+          <h4>written by {guide.author}</h4>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. At corrupti iste ab magnam dignissimos id maxime rerum quae minima. Delectus maxime culpa est consequatur veritatis, perspiciatis cum corrupti possimus quis?</p>
         </div>
       ))}
-    </div>
-  );
-};
 
-const favorite = guide => {
-  const url = '/.netlify/functions/favorites';
-  const data = {
-    guideId: guide.id
-  };
-  fetch(url, {
-    method: 'POST',
-    headers: {
-      Authorization: 'Bearer ' + user.token.access_token
-    },
-    body: JSON.stringify(data)
-  })
-    .then(res => {
-      if (!res.ok) {
-        return;
-      }
-      return res.json();
-    })
-    .then(data => {
-      setFavoriteGuides(data);
-    })
-    .catch(err => {
-      console.log(err);
-    });
-};
-
-export default Favorites;
+    </div> 
+  )
+}
