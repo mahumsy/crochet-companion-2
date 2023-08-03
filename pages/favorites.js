@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import styles from '../styles/Guides.module.css';
 import AuthContext from '../stores/authContext';
+import FavoritesContext from '../stores/favorites-context';
 
 const Favorites = () => {
   const { user, authReady, login, favorites } = useContext(AuthContext);
