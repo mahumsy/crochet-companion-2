@@ -46,9 +46,15 @@ export default function search() {
   }
  
   return (
- 
 
-<div
+    <div className="container">
+      <button id="clickme" onClick={handleClick}>
+  Click me  
+</button>
+
+      
+
+      <div
         dangerouslySetInnerHTML={{
           __html: `
             <!DOCTYPE html>
@@ -85,6 +91,74 @@ export default function search() {
         }}
       />
 
-         
-  )
+<nav>
+        <h1>Crochet Companion</h1>
+
+        {authReady && (
+           <ul style={{display: 'flex', justifyContent:'center'}}>
+            <li> <Link href="/">Home</Link> </li> <li> <Link href="/guides">Guides</Link> </li>
+
+            <li>
+      <Link href="/favorites">Favorites</Link>
+    </li>
+            <li>
+              <Link href="/search">Pattern Searchyyy</Link>
+            </li>
+
+            <li>
+              <Link href="/favorites">Favorites</Link> 
+            </li>
+
+            <li>
+              <Link href="/my-uploads">My Uploads</Link>
+            </li>
+            
+            <li>
+              <Link href="/my-creations">My Creations</Link>
+            </li>
+
+            
+            <div className="loginbtn" style={{position: 'absolute', right: 30}}>  {!user && 
+    <li onClick={login}>Login/Signup</li>
+  }
+  </div>
+
+  <div className="email" style={{position: 'absolute', right: 30, top: 170}}>
+
+
+  {user && 
+    <li>{user.email}</li>
+  }
+
+</div>
+<div className="loginbtn" style={{position: 'absolute', right: 30}}>
+  {user &&
+    <li onClick={logout}>Logout</li>
+  }
+  </div>
+
+          </ul>
+        )}
+      </nav>
+
+<div
+        dangerouslySetInnerHTML={{
+          __html: `
+          <p>Welcome to Crochet Companion!</p>
+
+          
+
+          <p>this is the search page.</p>
+
+          <p>which should only be accessible if logged in.</p>
+        </body>
+
+
+
+
+          ` 
+        }}
+      />
+    </div>
+  );
 }
