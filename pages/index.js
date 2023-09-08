@@ -1,3 +1,4 @@
+import { useState } from 'react'; 
 import Link from "next/link";
 import Image from "next/image";
 import { useContext } from "react";
@@ -6,8 +7,18 @@ import AuthContext from "../stores/authContext";
 export default function Navbar() {
   const { user, login, logout, authReady } = useContext(AuthContext);
 
+  const [clicked, setClicked] = useState(false);
+
+  const handleClick = () => {
+    setClicked(true);
+  };
+
   return (
+
     <div className="container">
+      <button id="clickme" onClick={handleClick}>
+  Click me  
+</button>
 
       
 
@@ -102,6 +113,8 @@ export default function Navbar() {
         dangerouslySetInnerHTML={{
           __html: `
           <p>Welcome to Crochet Companion!</p>
+
+          
 
           <p>Here you can search for patterns...</p>
 

@@ -1,11 +1,13 @@
 exports.handler = async (event, context) => {
   const guides = [
-    { title: 'Beat all Zelda Bosses Like a Boss', author: 'mario' },
+    { title: 'crochet pattern 1', author: 'mario' },
     { title: 'Mario Kart Shortcuts You Never Knew Existed', author: 'luigi' },
     { title: 'Ultimate Street Fighter Guide', author: 'chun-li' },
   ]
+  const clicked = event.body.clicked || event.headers['x-clicked'] || event.queryStringParameters.clicked
+  
 
-  if (context.clientContext.user) {
+  if (context.clientContext.user && clicked) {
     // fetch data & then return
     return {
       statusCode: 200,

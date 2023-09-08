@@ -1,38 +1,49 @@
 import { useContext, useEffect, useState } from 'react'
 import styles from '../styles/Guides.module.css'
 import AuthContext from '../stores/authContext'
+import { clicked } from './index.js';
 
 export default function Guides() {
   const { user, authReady, login } = useContext(AuthContext)
   const [guides, setGuides] = useState(null)
   const [error, setError] = useState(null)
 
+  const [clicked, setClicked] = useState(false)
+
+
+
   useEffect(() => {
     if (authReady) {
-      fetch('/.netlify/functions/guides', user && {
+      const query = clicked ? '?clicked=true' : ''
+
+      fetch(`/.netlify/functions/guides${query}`, {
         headers: {
-          Authorization:  'Bearer ' + user.token.access_token
+          Authorization: `Bearer ${user.token}` 
         }
       })
       .then(res => {
         if (!res.ok) {
-          login()
-          throw Error('You must be logged in to view this content')
+          return res.json().then(data => {
+            throw new Error(data.message)
+          })
         }
         return res.json()
       })
       .then(data => {
-        setError(null)
         setGuides(data)
+        setError(null)
       })
       .catch(err => {
         setError(err.message)
         setGuides(null)
       })
     }
+  }, [user, authReady, clicked])
 
-  },[user, authReady])
-
+  const handleClick = () => {
+    setClicked(true)
+  }
+ 
   return (
     <div className={styles.guides}>
 
