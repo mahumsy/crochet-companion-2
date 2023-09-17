@@ -4,7 +4,7 @@ import styles from '../styles/Guides.module.css'
 import AuthContext from '../stores/authContext'
 import { clicked } from './index.js';
 
-export default function search() {
+export default function Search() {
   const { user, authReady, login } = useContext(AuthContext)
   const [guides, setGuides] = useState(null)
   const [error, setError] = useState(null)
