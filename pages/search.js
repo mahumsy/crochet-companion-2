@@ -17,7 +17,7 @@ export default function search() {
     if (authReady) {
       const query = clicked ? '?clicked=true' : ''
 
-      fetch(`/.netlify/functions/guides${query}`, {
+      fetch(`/.netlify/functions/search${query}`, {
         headers: {
           Authorization: `Bearer ${user.token}` 
         }
