@@ -17,24 +17,30 @@ export default function Navbar() {
 
     <div className="container">
      
-     <React.Fragment>
+     <div>
+      <link rel="stylesheet" href="/style.css" />
+      <script src="/script.js" defer></script>
       <div id="one">
-        <img id="yuh" src="https://cdn.glitch.global/c6b9db38-a26a-4266-956d-36e2d8c4b185/IMG\_0575.jpg?v=1689899431190" />
+        <img id="yuh" src="https://cdn.glitch.global/c6b9db38-a26a-4266-956d-36e2d8c4b185/IMG_0575.jpg?v=1689899431190" alt="Crochet Companion" />
         <h1>Crochet Companion</h1>
       </div>
-
       <ul>
-        <img 
-          id="yarn"
-          src="https://thenounproject.com/api/private/icons/643771/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0" 
-        />
-        <img
-          id="yarn2" 
-          src="https://thenounproject.com/api/private/icons/643771/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0"
-        />
+        <li>
+          <img
+            id="yarn"
+            src='https://thenounproject.com/api/private/icons/643771/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0'
+            alt="Yarn 1"
+          />
+        </li>
+        <li>
+          <img
+            id="yarn2"
+            src='https://thenounproject.com/api/private/icons/643771/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0'
+            alt="Yarn 2"
+          />
+        </li>
       </ul>
-    </React.Fragment>
-
+    </div>
       
 
       {/* <div
