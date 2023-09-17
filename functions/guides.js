@@ -9,8 +9,7 @@ exports.handler = async (event, context) => {
     // fetch data & then return
     return {
       statusCode: 200,
-      body: "hello"
-      
+      body: JSON.stringify(guides)
     }
   }
 
