@@ -62,7 +62,7 @@ export default function Guides() {
     // </div> 
 
 
-<div
+{/* <div
         dangerouslySetInnerHTML={{
           __html: `
             <!DOCTYPE html>
@@ -366,7 +366,7 @@ beginner (learn the basics), easy ,intermediate ,advanced
 </html>
 ` 
 }}
-/>
+/> */}
 
   )
 }
