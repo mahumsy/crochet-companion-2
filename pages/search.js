@@ -19,6 +19,7 @@ export default function Guides() {
           login()
           throw Error('You must be logged in to view this content')
         }
+
         return res.json()
       })
       .then(data => {
@@ -69,10 +70,7 @@ export default function Guides() {
 
 
               <style>
-  body {
-    background-color: pink;
-  }
-
+  
   #chosenFilters {
     display: flex;
     flex-wrap: wrap;
@@ -137,14 +135,24 @@ beginner (learn the basics), easy ,intermediate ,advanced
 - type (stuffed animals,  
   granny squares, tote bags, tapestries, clothing, blankets, flowers) -->
     <tr>
-      <th>Name</th>
-      <th>Age</th>
-      <th>Birthday</th>
+      <th>Pattern</th>
+      <th>Image</th>
+      <th>Type</th>
+      <th>Difficulty</th>
+      <th>Colors</th>
+      <th>Stitch Types</th>
+      <th>Est. Time to Make</th>
     </tr>
     <tr id="row-michael1">
-      <td><a href="#" onclick="showInfo('michael1')">Michael</a></td>
-      <td>30</td>
-      <td>11/10/1989</td>
+      <td><a href="#" onclick="showInfo('michael1')">Bee</a></td>
+      <td><img src="https://images.squarespace-cdn.com/content/v1/5e18a0efb9904526f1bedb80/f34a749b-cdaf-4655-bd49-031000a7219a/crochet+amigurumi+bee.jpg?format=1500w"
+               width="100"></td>
+      <td>stuffed animals</td>
+      <td>easy</td>
+      <td>black, yellow, white</td>
+      <td>single crochet (SC)</td>
+      <td>less than an hour</td>
+      <td></td>
     </tr>
     <tr>
       <td>Michael</td>
@@ -174,9 +182,11 @@ beginner (learn the basics), easy ,intermediate ,advanced
   </table>
 
   <form id="addForm" onsubmit="addRow(this); return false;">
-    <input name="name" placeholder="Name..." />
-    <input name="age" placeholder="Age..." />
-    <input name="birthday" placeholder="Birthday..." />
+    <input name="pattern" placeholder="Pattern..." />
+    <input name="age" placeholder="Type..." />
+    <input name="birthday" placeholder="Difficulty..." />
+    <input name="birthday" placeholder="Colors..." />
+    <input name="birthday" placeholder="Stitch Types..." />
 
     <button type="submit">Add Row</button>
   </form>
