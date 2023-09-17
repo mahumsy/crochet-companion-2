@@ -62,14 +62,14 @@ td {
   object-fit: fill;
 }
 
-#yarn {
+ #yarn {
   max-width: 10%;
   height: auto;
 
   position: absolute;
   left: 0;
   top: 140px;
-  left: 245px;
+  left: 445px;
 }
 #yarn2 {
   max-width: 10%;
@@ -78,9 +78,9 @@ td {
   position: absolute;
   left: 0;
   top: 140px;
-  left: 1030px;
-  transform: scaleX(-1);
-}
+  left: 840px;
+  transform: scaleX(-1); } 
+
 h1 {
   display: flex;
   justify-content: center;
@@ -136,20 +136,24 @@ nav .right {
 }
 
 .loginbtn {
-  padding: 10px 16px;
-  border: 2px solid var(--primary);
-  border-radius: 30px;
+  padding: 12px 18px; 
+  border: none;
+  background-color: #c8b6ff;
+  border-radius: 20px; 
+  /* box-shadow: 0 0 0 2px var(--primary); */
+
   font-weight: 600;
   color: var(--primary);
-  cursor: pointer;
+  cursor: pointer;  
 }
+
 .loginbtn:hover {
+  /* box-shadow: 0 0 0 2px var(--primary); */
   color: white;
-  background: var(--primary);
 }
 
 .email
 {
-  color: purple;
+  color: rgb(53, 69, 158);
 }
 

@@ -53,7 +53,10 @@ export default function Guides() {
       ))} */}
 
 
-  {user && <p>Hello!</p>}
+  {user && 
+    <p>Hello!</p>
+    
+    }
 
     </div> 
   )
