@@ -130,31 +130,14 @@ export default function Navbar() {
         )}
       </nav>
 
-<div
-        dangerouslySetInnerHTML={{
-          __html: `
-          <p>Welcome to Crochet Companion!</p>
-
-          
-
-          <p>Here you can search for patterns...</p>
-
-          <p>choose from a variety of factors like what colors of yarn you have, how much time the creation will take to make, and more</p>
-
-          <p>Save your favorite patterns and access them at any time</p>
-
-          <p>Upload your own original crochet patterns</p>
-
-          <p>And keep track of what you've made so far with a crochet log!</p>
-
-        </body>
-
-
-
-
-          ` 
-        }}
-      />
+      <div>
+  <p>Welcome to Crochet Companion!</p>
+  <p>Here you can search for patterns...</p>
+  <p>Choose from a variety of factors like what colors of yarn you have, how much time the creation will take to make, and more</p>
+  <p>Save your favorite patterns and access them at any time</p>
+  <p>Upload your own original crochet patterns</p>
+  <p>And keep track of what you've made so far with a crochet log!</p>
+</div>
     </div>
   );
 }
