@@ -157,3 +157,21 @@ nav .right {
   color: rgb(53, 69, 158);
 }
 
+#chosenFilters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  flex-direction: row;
+}
+#cfmichael,
+#cfpaul {
+  padding: 0.2rem 0.5rem;
+  background: #eee;
+  border-radius: 999px;
+  font-size: 0.9rem;
+}
+#namefilter {
+  display: flex;
+  flex-direction: row;
+}
+

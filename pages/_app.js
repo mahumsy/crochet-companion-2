@@ -7,7 +7,9 @@ function MyApp({ Component, pageProps }) {
     <AuthContextProvider>
       <Navbar />
       <Component {...pageProps} />
+      
     </AuthContextProvider>
+    
   )
 }
 
